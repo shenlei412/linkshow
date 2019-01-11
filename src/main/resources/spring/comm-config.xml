@@ -11,10 +11,8 @@
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
 	<context:annotation-config />
-
-	<!--注解配置 -->
-	<aop:aspectj-autoproxy proxy-target-class="true">
-	</aop:aspectj-autoproxy>
+	<!-- 动态代理设置 -->
+	<aop:aspectj-autoproxy proxy-target-class="true" />
 
 
 	<!-- 扫描的包路径 去掉mvc的注解 -->

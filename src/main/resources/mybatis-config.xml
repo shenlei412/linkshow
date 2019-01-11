@@ -5,12 +5,21 @@
 
 <configuration>
 
+	<properties>
+		<property name="dialect" value="mysql" />
+	</properties>
+
 	<settings>
+
+		<setting name="logImpl" value="LOG4J"/>
+
 		<setting name="lazyLoadingEnabled" value="false" />
 		<!-- 全局映射器启用缓存 -->
 		<setting name="cacheEnabled" value="true" />
+
 	</settings>
-	
+
+
 	<!--<plugins>
 
 		 <plugin interceptor="com.github.pagehelper.PageHelper">
@@ -40,7 +49,8 @@
 	    </plugin>
 	    
 	</plugins>-->
-	
+
+
 	<!-- 使用Spring + junit测试时候加载不了mapper文件，可能由于mapper.xml和mapper.java不再同一目录下 -->
  	<mappers>
 		<package name="com.easylinkin.linkshow.*.dao" />

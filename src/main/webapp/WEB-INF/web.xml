@@ -5,6 +5,7 @@
          metadata-complete="true" version="3.0">
   <display-name>linkshowend</display-name>
 
+
   <!-- ============================================================== -->
   <!-- Log4j Config Definitions -->
   <!-- ============================================================== -->
@@ -18,12 +19,14 @@
   </context-param>
   <context-param>
     <param-name>webAppRootKey</param-name>
-    <param-value>likshow</param-value>
+    <param-value>linkshow</param-value>
   </context-param>
   <listener>
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
   </listener>
-
+  <!-- ============================================================== -->
+  <!-- Spring Config Definitions -->
+  <!-- ============================================================== -->
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext.xml</param-value>
@@ -35,6 +38,7 @@
     <listener-class>org.springframework.web.util.IntrospectorCleanupListener</listener-class>
   </listener>
 
+  <!-- 配置Encoding为UTF-8 -->
   <filter>
     <filter-name>EncodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
