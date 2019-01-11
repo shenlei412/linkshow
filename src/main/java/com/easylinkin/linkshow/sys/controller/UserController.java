@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * UserController
  * <p>
- * 功能:
+ * 功能:用户管理controller
  *
  * <pre>
  * ver     修订日              作者           修订内容
@@ -26,11 +26,12 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
     @RequestMapping(value = "/userList")
     public ModelAndView userList(User user){
         ModelAndView mav = new ModelAndView();
         List<User> userList = userService.getUserList(user);
-        mav.addObject("list",userList);
+        mav.addObject("userList",userList);
         mav.setViewName("/index");
         return mav;
     }

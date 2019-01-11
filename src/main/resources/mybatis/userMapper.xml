@@ -3,7 +3,25 @@
 <mapper namespace="com.easylinkin.linkshow.sys.dao.UserDao">
 
     <select id="getUserList" parameterType="com.easylinkin.linkshow.sys.entity.User" resultType="com.easylinkin.linkshow.sys.entity.User">
-        SELECT * FROM user WHERE 1=1
+        SELECT
+               USER_ID AS userId,
+               USER_NAME AS userName,
+               PASSWORD AS password,
+               PASSWORD_OLD AS passwordOld,
+               STATUS AS status,
+               REAL_NAME AS realName,
+               CODE AS code,
+               SEX as sex,
+               TELEPHONE AS telePhone,
+               EMAIL AS email,
+               DEL_FLAG AS delFlag,
+               CREATE_USER AS createUser,
+               CREATE_DATE AS createDate,
+               UPDATE_USER AS updateUser,
+               UPDATE_DATE AS updateDate
+        FROM
+             user
+        WHERE 1=1
     </select>
 </mapper>
 
