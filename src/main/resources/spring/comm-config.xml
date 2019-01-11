@@ -9,6 +9,25 @@
     http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
         http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
+
+	<context:annotation-config />
+
+	<!--注解配置 -->
+	<aop:aspectj-autoproxy proxy-target-class="true">
+	</aop:aspectj-autoproxy>
+
+
+	<!-- 扫描的包路径 去掉mvc的注解 -->
+	<context:component-scan base-package="com.easylinkin.linkshow">
+		<context:exclude-filter type="annotation"
+								expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+
+	<!-- SpringHolder -->
+	<bean id="springContextHolder"
+		  class="com.easylinkin.linkshow.common.utils.SpringContextHolder"
+		  lazy-init="false" />
+
 	<!-- 加载*.properties File -->
 	<bean id="dbConfPostProcessor"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
@@ -19,11 +38,6 @@
 			</list>
 		</property>
 	</bean>
-	<!-- 扫描的包路径 去掉mvc的注解 -->
-	<context:component-scan base-package="com.easylinkin">
-		<context:exclude-filter type="annotation"
-			expression="org.springframework.stereotype.Controller" />
-	</context:component-scan>
 
 	<!-- mybatis多数据库分页配置 -->
    	<!--<bean id="pageInterceptor" class="com.easylinkin.linkshow.interceptor.PageInterceptor"></bean>-->
@@ -33,6 +47,5 @@
        <aop:pointcut expression="execution(public * com.easylinkin.linkshow.service..*.*ByPage(..))" id="pagePointcut"/>
        <aop:advisor advice-ref="pageInterceptor" pointcut-ref="pagePointcut"/>
     </aop:config>-->
-    
 
 </beans>

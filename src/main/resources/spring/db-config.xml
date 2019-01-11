@@ -42,8 +42,12 @@
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="configLocation" value="classpath:mybatis-config.xml" />
- 		<property name="mapperLocations" value="classpath:mybatis/**/*.xml"/>
+ 		<property name="mapperLocations" value="classpath*:mybatis/**/*.xml"/>
  	</bean>
 
+	<!-- 会自动将basePackage中配置的包路径下的所有带有@Mapper标注的Dao层的接口生成代理，替代原来我们的Dao实现。 -->
+	<bean id="MapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.easylinkin.linkshow.*.dao" />
+	</bean>
 
 </beans>

@@ -16,6 +16,11 @@
 		http://www.springframework.org/schema/aop/spring-aop.xsd"
 	default-lazy-init="false">
 
+	<aop:aspectj-autoproxy proxy-target-class="true" />
+
+    <mvc:default-servlet-handler/>
+
+
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
 			<bean class="org.springframework.http.converter.StringHttpMessageConverter">
@@ -24,6 +29,7 @@
 		</mvc:message-converters>
 	</mvc:annotation-driven>
 
+    <context:annotation-config />
 	<!-- 只扫描Controller 注解 -->
 	<context:component-scan base-package="com.easylinkin"
 		use-default-filters="false">
@@ -33,7 +39,6 @@
 
 	<mvc:resources mapping="/static/**" location="/static/" />
 	
-	<mvc:resources mapping="favicon.ico" location="favicon.ico" />
 
 
 	<!-- 全局异常配置 start -->
@@ -70,10 +75,10 @@
 		<property name="order" value="0" />
 	</bean>
 
-	<!-- spring拦截器 -->
+	<!--&lt;!&ndash; spring拦截器 &ndash;&gt;
 	<mvc:interceptors>
 		<bean class="com.easylinkin.linkshow.interceptor.SessionInterceptor"></bean>
-	</mvc:interceptors>
+	</mvc:interceptors>-->
 
 
 </beans>
